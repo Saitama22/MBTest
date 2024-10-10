@@ -1,4 +1,4 @@
-using MBTest.Exceptions;
+п»їusing MBTest.Exceptions;
 using MBTest.Figures;
 
 namespace MBTestTests {
@@ -27,14 +27,14 @@ namespace MBTestTests {
 		];
 
 		/// <summary>
-		/// Проверка негативных тестов
+		/// РџСЂРѕРІРµСЂРєР° РЅРµРіР°С‚РёРІРЅС‹С… С‚РµСЃС‚РѕРІ
 		/// </summary>
 		[Test]
 		public void TestInvalidCircles() {
 			foreach (var radius in InvalidRadiusTestCases) {
 				try {
 					new Circle(radius);
-					Assert.Fail("Можно создать окружность с радиусом меньше 0");
+					Assert.Fail("РњРѕР¶РЅРѕ СЃРѕР·РґР°С‚СЊ РѕРєСЂСѓР¶РЅРѕСЃС‚СЊ СЃ СЂР°РґРёСѓСЃРѕРј РјРµРЅСЊС€Рµ 0");
 				}
 				catch (InvalidFigureException) {
 				}
@@ -43,7 +43,7 @@ namespace MBTestTests {
 				try {
 					var circle = new Circle(1);
 					circle.Radius = radius;
-					Assert.Fail("Можно изменить радиус на значение меньше 0");
+					Assert.Fail("РњРѕР¶РЅРѕ РёР·РјРµРЅРёС‚СЊ СЂР°РґРёСѓСЃ РЅР° Р·РЅР°С‡РµРЅРёРµ РјРµРЅСЊС€Рµ 0");
 				}
 				catch (InvalidFigureException) {
 				}
@@ -51,7 +51,7 @@ namespace MBTestTests {
 		}
 
 		/// <summary>
-		/// Положительные тесты по формуле
+		/// РџРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рµ С‚РµСЃС‚С‹ РїРѕ С„РѕСЂРјСѓР»Рµ
 		/// </summary>
 		[Test]
 		public void TestPerimeterAreaFormula() {
@@ -59,19 +59,19 @@ namespace MBTestTests {
 				Random random = new();
 				var radius = random.NextDouble();
 				var cirle = new Circle(radius);
-				Assert.That(cirle.Perimeter, Is.EqualTo(radius * 2 * Math.PI), $"Расчет периметра окружности неверен для радиуса {radius}");
-				Assert.That(cirle.Area, Is.EqualTo(Math.Pow(radius, 2) * Math.PI), $"Расчет площади окружности неверен для радиуса {radius}");
+				Assert.That(cirle.Perimeter, Is.EqualTo(radius * 2 * Math.PI), $"Р Р°СЃС‡РµС‚ РїРµСЂРёРјРµС‚СЂР° РѕРєСЂСѓР¶РЅРѕСЃС‚Рё РЅРµРІРµСЂРµРЅ РґР»СЏ СЂР°РґРёСѓСЃР° {radius}");
+				Assert.That(cirle.Area, Is.EqualTo(Math.Pow(radius, 2) * Math.PI), $"Р Р°СЃС‡РµС‚ РїР»РѕС‰Р°РґРё РѕРєСЂСѓР¶РЅРѕСЃС‚Рё РЅРµРІРµСЂРµРЅ РґР»СЏ СЂР°РґРёСѓСЃР° {radius}");
 			}
 		}
 
 		/// <summary>
-		/// Положительные тесты
+		/// РџРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рµ С‚РµСЃС‚С‹
 		/// </summary>
 		[Test]
 		public void TestPerimeterArea() {
 			foreach (var validCirclesTest in ValidCirclesTestCases) {
-				Assert.That(Math.Round(validCirclesTest.Circle.Perimeter, validCirclesTest.RoundValue), Is.EqualTo(validCirclesTest.PerimeterTest), $"Расчет периметра окружности неверен для радиуса {validCirclesTest.Circle.Radius}");
-				Assert.That(Math.Round(validCirclesTest.Circle.Area, validCirclesTest.RoundValue), Is.EqualTo(validCirclesTest.AreaTest), $"Расчет площади окружности неверен для радиуса {validCirclesTest.Circle.Radius}");
+				Assert.That(Math.Round(validCirclesTest.Circle.Perimeter, validCirclesTest.RoundValue), Is.EqualTo(validCirclesTest.PerimeterTest), $"Р Р°СЃС‡РµС‚ РїРµСЂРёРјРµС‚СЂР° РѕРєСЂСѓР¶РЅРѕСЃС‚Рё РЅРµРІРµСЂРµРЅ РґР»СЏ СЂР°РґРёСѓСЃР° {validCirclesTest.Circle.Radius}");
+				Assert.That(Math.Round(validCirclesTest.Circle.Area, validCirclesTest.RoundValue), Is.EqualTo(validCirclesTest.AreaTest), $"Р Р°СЃС‡РµС‚ РїР»РѕС‰Р°РґРё РѕРєСЂСѓР¶РЅРѕСЃС‚Рё РЅРµРІРµСЂРµРЅ РґР»СЏ СЂР°РґРёСѓСЃР° {validCirclesTest.Circle.Radius}");
 			}
 		}
 	}
