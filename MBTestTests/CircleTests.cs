@@ -70,8 +70,8 @@ namespace MBTestTests {
 		[Test]
 		public void TestPerimeterArea() {
 			foreach (var validCirclesTest in ValidCirclesTestCases) {
-				Assert.That(Math.Round(validCirclesTest.Circle.Perimeter, 2), Is.EqualTo(validCirclesTest.PerimeterTest), $"Расчет периметра окружности неверен для радиуса {validCirclesTest.Circle.Radius}");
-				Assert.That(Math.Round(validCirclesTest.Circle.Area, 2), Is.EqualTo(validCirclesTest.AreaTest), $"Расчет площади окружности неверен для радиуса {validCirclesTest.Circle.Radius}");
+				Assert.That(Math.Round(validCirclesTest.Circle.Perimeter, validCirclesTest.RoundValue), Is.EqualTo(validCirclesTest.PerimeterTest), $"Расчет периметра окружности неверен для радиуса {validCirclesTest.Circle.Radius}");
+				Assert.That(Math.Round(validCirclesTest.Circle.Area, validCirclesTest.RoundValue), Is.EqualTo(validCirclesTest.AreaTest), $"Расчет площади окружности неверен для радиуса {validCirclesTest.Circle.Radius}");
 			}
 		}
 	}
